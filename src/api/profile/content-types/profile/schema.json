@@ -4,17 +4,62 @@
   "info": {
     "singularName": "profile",
     "pluralName": "profiles",
-    "displayName": "profile"
+    "displayName": "profile",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
     "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "profile.skills"
+    },
+    "contacts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "profile.contacts"
+    },
+    "heroSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "profile.section"
+    },
+    "aboutSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "profile.section"
+    },
+    "projectsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "profile.section"
+    },
+    "contactSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "profile.section"
+    },
+    "footerSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "profile.section"
+    },
+    "projects": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::skill.skill"
+      "target": "api::project.project"
     }
   }
 }

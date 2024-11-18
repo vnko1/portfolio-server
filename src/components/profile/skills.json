@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_profile_skills",
+  "info": {
+    "displayName": "Skills",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "skills": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

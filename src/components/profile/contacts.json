@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_profile_contacts",
+  "info": {
+    "displayName": "Contacts"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

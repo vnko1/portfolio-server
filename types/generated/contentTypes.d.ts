@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiProfileProfile extends Struct.SingleTypeSchema {
   collectionName: 'profiles';
   info: {
+    description: '';
     displayName: 'profile';
     pluralName: 'profiles';
     singularName: 'profile';
@@ -380,42 +381,64 @@ export interface ApiProfileProfile extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    aboutSection: Schema.Attribute.Component<'profile.section', false>;
+    avatar: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    contacts: Schema.Attribute.Component<'profile.contacts', true>;
+    contactSection: Schema.Attribute.Component<'profile.section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    footerSection: Schema.Attribute.Component<'profile.section', false>;
+    heroSection: Schema.Attribute.Component<'profile.section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::profile.profile'
     > &
       Schema.Attribute.Private;
+    projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
+    projectsSection: Schema.Attribute.Component<'profile.section', false>;
     publishedAt: Schema.Attribute.DateTime;
-    skills: Schema.Attribute.Relation<'oneToMany', 'api::skill.skill'>;
+    skills: Schema.Attribute.Component<'profile.skills', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiSkillSkill extends Struct.CollectionTypeSchema {
-  collectionName: 'skills';
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+  collectionName: 'projects';
   info: {
-    displayName: 'skill';
-    pluralName: 'skills';
-    singularName: 'skill';
+    description: '';
+    displayName: 'Project';
+    pluralName: 'projects';
+    singularName: 'project';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    codeLink: Schema.Attribute.String & Schema.Attribute.Required;
+    completed: Schema.Attribute.Text & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    introSection: Schema.Attribute.Component<'profile.section', false> &
+      Schema.Attribute.Required;
+    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::skill.skill'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    > &
       Schema.Attribute.Private;
+    overview: Schema.Attribute.Text & Schema.Attribute.Required;
+    preview: Schema.Attribute.Text & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    skill: Schema.Attribute.String;
+    role: Schema.Attribute.Text & Schema.Attribute.Required;
+    tools: Schema.Attribute.Component<'profile.skills', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -932,7 +955,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::profile.profile': ApiProfileProfile;
-      'api::skill.skill': ApiSkillSkill;
+      'api::project.project': ApiProjectProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
