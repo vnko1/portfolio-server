@@ -11,8 +11,16 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
     return await strapi.documents(uid).findMany({
       populate: {
         avatar: { fields: ["url"] },
+        heroSection: true,
+        aboutSection: true,
+        projectsSection: true,
+        contactSection: true,
+        skills: true,
+        contacts: { populate: { image: { fields: ["url"] } } },
         projects: {
-          populate: { banner: { fields: ["url"] } },
+          populate: {
+            banner: { fields: ["url"] },
+          },
           fields: ["title", "preview"],
         },
       },

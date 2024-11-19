@@ -14,4 +14,11 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
       .documents(uid)
       .findMany({ populate: { banner: { fields: ["url"] } } });
   },
+
+  async findOne(ctx) {
+    return await strapi.documents(uid).findOne({
+      documentId: ctx.params.id,
+      populate: { banner: { fields: ["url"] }, tools: true },
+    });
+  },
 }));
