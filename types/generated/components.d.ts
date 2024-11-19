@@ -26,23 +26,11 @@ export interface ProfileSection extends Struct.ComponentSchema {
   };
 }
 
-export interface ProfileSkills extends Struct.ComponentSchema {
-  collectionName: 'components_profile_skills';
-  info: {
-    description: '';
-    displayName: 'Skills';
-  };
-  attributes: {
-    skills: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'profile.contacts': ProfileContacts;
       'profile.section': ProfileSection;
-      'profile.skills': ProfileSkills;
     }
   }
 }
