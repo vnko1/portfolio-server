@@ -12,6 +12,16 @@ export interface ProfileContacts extends Struct.ComponentSchema {
   };
 }
 
+export interface ProfileList extends Struct.ComponentSchema {
+  collectionName: 'components_profile_lists';
+  info: {
+    displayName: 'List';
+  };
+  attributes: {
+    item: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ProfileSection extends Struct.ComponentSchema {
   collectionName: 'components_profile_sections';
   info: {
@@ -30,6 +40,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'profile.contacts': ProfileContacts;
+      'profile.list': ProfileList;
       'profile.section': ProfileSection;
     }
   }
