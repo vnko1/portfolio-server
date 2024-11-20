@@ -32,7 +32,7 @@
       "type": "text",
       "required": true
     },
-    "overView": {
+    "overview": {
       "type": "richtext",
       "required": true
     },

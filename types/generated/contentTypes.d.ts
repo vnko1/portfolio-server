@@ -437,7 +437,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     order: Schema.Attribute.Integer & Schema.Attribute.Unique;
-    overView: Schema.Attribute.RichText & Schema.Attribute.Required;
+    overview: Schema.Attribute.RichText & Schema.Attribute.Required;
     preview: Schema.Attribute.Text & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     subTitle: Schema.Attribute.Text & Schema.Attribute.Required;
