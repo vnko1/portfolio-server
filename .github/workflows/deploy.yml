@@ -1,4 +1,4 @@
-name: Deploy to Hostinger Ubuntu Server
+name: Deploy to Production
 
 on:
   push:
@@ -10,19 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@v0.1.4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          script: |
-            echo "" | sudo -S true
-            cd /var/www/portfolio-server
-            git pull origin main
-            sudo npm install
-            sudo npm run build
-            pm2 reload portfolio-server
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install PM2
+        run: npm install -g pm2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add server to known_hosts
+        run: ssh-keyscan -H 62.72.20.238 >> ~/.ssh/known_hosts
+
+      - name: PM2 Deploy
+        run: pm2 deploy ecosystem.config.js production --force
