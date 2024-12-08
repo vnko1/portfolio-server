@@ -369,81 +369,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiProfileProfile extends Struct.SingleTypeSchema {
-  collectionName: 'profiles';
+export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
+  collectionName: 'portfolios';
   info: {
-    description: '';
-    displayName: 'Profile';
-    pluralName: 'profiles';
-    singularName: 'profile';
+    displayName: 'Portfolio';
+    pluralName: 'portfolios';
+    singularName: 'portfolio';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    aboutSection: Schema.Attribute.Component<'profile.section', false> &
-      Schema.Attribute.Required;
-    avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    contacts: Schema.Attribute.Component<'profile.contacts', true> &
-      Schema.Attribute.Required;
-    contactSection: Schema.Attribute.Component<'profile.section', false> &
-      Schema.Attribute.Required;
+    careerHistory: Schema.Attribute.Component<'profile.career', true>;
+    contacts: Schema.Attribute.Component<'profile.contact', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footerDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    heroSection: Schema.Attribute.Component<'profile.section', false> &
-      Schema.Attribute.Required;
+    expertise: Schema.Attribute.Component<'profile.experience', true>;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::profile.profile'
+      'api::portfolio.portfolio'
     > &
       Schema.Attribute.Private;
-    projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
-    projectsSection: Schema.Attribute.Component<'profile.section', false> &
-      Schema.Attribute.Required;
+    position: Schema.Attribute.String & Schema.Attribute.Required;
+    projects: Schema.Attribute.Component<'profile.project', true>;
     publishedAt: Schema.Attribute.DateTime;
-    skills: Schema.Attribute.Component<'profile.list', true> &
-      Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiProjectProject extends Struct.CollectionTypeSchema {
-  collectionName: 'projects';
-  info: {
-    description: '';
-    displayName: 'project';
-    pluralName: 'projects';
-    singularName: 'project';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    codeLink: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::project.project'
-    > &
-      Schema.Attribute.Private;
-    order: Schema.Attribute.Integer & Schema.Attribute.Unique;
-    overview: Schema.Attribute.RichText & Schema.Attribute.Required;
-    preview: Schema.Attribute.Text & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    subTitle: Schema.Attribute.Text & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    tools: Schema.Attribute.Component<'profile.list', true> &
-      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -959,8 +912,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::profile.profile': ApiProfileProfile;
-      'api::project.project': ApiProjectProject;
+      'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_profile_careers",
+  "info": {
+    "displayName": "Career",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "period": {
+      "type": "string",
+      "required": true
+    },
+    "isVisible": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
