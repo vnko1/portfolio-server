@@ -1,7 +1,8 @@
 {
   "collectionName": "components_profile_contacts",
   "info": {
-    "displayName": "Contacts"
+    "displayName": "Contact",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,9 +10,16 @@
       "type": "string",
       "required": true
     },
-    "image": {
+    "lightIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
-        "files",
+        "images"
+      ]
+    },
+    "darkIcon": {
+      "allowedTypes": [
         "images"
       ],
       "type": "media",

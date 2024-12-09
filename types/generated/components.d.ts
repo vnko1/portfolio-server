@@ -1,47 +1,85 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface ProfileContacts extends Struct.ComponentSchema {
-  collectionName: 'components_profile_contacts';
+export interface ProfileCareer extends Struct.ComponentSchema {
+  collectionName: 'components_profile_careers';
   info: {
-    displayName: 'Contacts';
+    description: '';
+    displayName: 'Career';
   };
   attributes: {
-    image: Schema.Attribute.Media<'files' | 'images'> &
-      Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    period: Schema.Attribute.String & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProfileContact extends Struct.ComponentSchema {
+  collectionName: 'components_profile_contacts';
+  info: {
+    description: '';
+    displayName: 'Contact';
+  };
+  attributes: {
+    darkIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    lightIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     link: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface ProfileList extends Struct.ComponentSchema {
-  collectionName: 'components_profile_lists';
+export interface ProfileExperience extends Struct.ComponentSchema {
+  collectionName: 'components_profile_experiences';
   info: {
-    displayName: 'List';
+    description: '';
+    displayName: 'Experience';
   };
   attributes: {
-    item: Schema.Attribute.String & Schema.Attribute.Required;
+    darkIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    lightIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    stackList: Schema.Attribute.Component<'profile.skill', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface ProfileSection extends Struct.ComponentSchema {
-  collectionName: 'components_profile_sections';
+export interface ProfileProject extends Struct.ComponentSchema {
+  collectionName: 'components_profile_projects';
   info: {
     description: '';
-    displayName: 'Section';
+    displayName: 'Project';
   };
   attributes: {
-    description: Schema.Attribute.Text;
-    secondDescription: Schema.Attribute.RichText;
-    subTitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    banner: Schema.Attribute.Media<'files' | 'images'> &
+      Schema.Attribute.Required;
+    codeLink: Schema.Attribute.String;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
+    role: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProfileSkill extends Struct.ComponentSchema {
+  collectionName: 'components_profile_skills';
+  info: {
+    description: '';
+    displayName: 'Skill';
+  };
+  attributes: {
+    skill: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'profile.contacts': ProfileContacts;
-      'profile.list': ProfileList;
-      'profile.section': ProfileSection;
+      'profile.career': ProfileCareer;
+      'profile.contact': ProfileContact;
+      'profile.experience': ProfileExperience;
+      'profile.project': ProfileProject;
+      'profile.skill': ProfileSkill;
     }
   }
 }

@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_profile_projects",
+  "info": {
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "liveLink": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "isVisible": {
+      "type": "boolean",
+      "default": true
+    },
+    "codeLink": {
+      "type": "string",
+      "required": false
+    },
+    "role": {
+      "type": "string"
+    }
+  }
+}
