@@ -382,12 +382,15 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
   };
   attributes: {
     avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    careerHistory: Schema.Attribute.Component<'profile.career', true>;
-    contacts: Schema.Attribute.Component<'profile.contact', true>;
+    careerHistory: Schema.Attribute.Component<'profile.career', true> &
+      Schema.Attribute.Required;
+    contacts: Schema.Attribute.Component<'profile.contact', true> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    expertise: Schema.Attribute.Component<'profile.experience', true>;
+    expertise: Schema.Attribute.Component<'profile.experience', true> &
+      Schema.Attribute.Required;
     firstName: Schema.Attribute.String & Schema.Attribute.Required;
     lastName: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -397,7 +400,8 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     position: Schema.Attribute.String & Schema.Attribute.Required;
-    projects: Schema.Attribute.Component<'profile.project', true>;
+    projects: Schema.Attribute.Component<'profile.project', true> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

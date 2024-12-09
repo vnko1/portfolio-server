@@ -27,30 +27,34 @@
     "contacts": {
       "type": "component",
       "repeatable": true,
-      "component": "profile.contact"
+      "component": "profile.contact",
+      "required": true
     },
     "expertise": {
       "type": "component",
       "repeatable": true,
-      "component": "profile.experience"
+      "component": "profile.experience",
+      "required": true
     },
     "careerHistory": {
       "type": "component",
       "repeatable": true,
-      "component": "profile.career"
+      "component": "profile.career",
+      "required": true
     },
     "projects": {
       "type": "component",
       "repeatable": true,
-      "component": "profile.project"
+      "component": "profile.project",
+      "required": true
     },
     "avatar": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

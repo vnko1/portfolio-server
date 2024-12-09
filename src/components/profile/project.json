@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "link": {
+    "liveLink": {
       "type": "string",
       "required": true
     },
@@ -33,7 +33,7 @@
     },
     "codeLink": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "role": {
       "type": "string"
