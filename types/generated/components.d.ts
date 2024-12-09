@@ -10,6 +10,7 @@ export interface ProfileCareer extends Struct.ComponentSchema {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     period: Schema.Attribute.String & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

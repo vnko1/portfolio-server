@@ -21,6 +21,10 @@
     "isVisible": {
       "type": "boolean",
       "default": true
+    },
+    "subTitle": {
+      "type": "string",
+      "required": true
     }
   }
 }
