@@ -30,6 +30,10 @@
     "isVisible": {
       "type": "boolean",
       "default": true
+    },
+    "codeLink": {
+      "type": "string",
+      "required": true
     }
   }
 }

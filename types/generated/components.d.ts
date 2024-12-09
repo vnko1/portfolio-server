@@ -52,6 +52,7 @@ export interface ProfileProject extends Struct.ComponentSchema {
   attributes: {
     banner: Schema.Attribute.Media<'files' | 'images'> &
       Schema.Attribute.Required;
+    codeLink: Schema.Attribute.String & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     link: Schema.Attribute.String & Schema.Attribute.Required;
