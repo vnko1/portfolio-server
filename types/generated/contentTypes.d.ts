@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
   collectionName: 'portfolios';
   info: {
+    description: '';
     displayName: 'Portfolio';
     pluralName: 'portfolios';
     singularName: 'portfolio';
@@ -380,6 +381,7 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     careerHistory: Schema.Attribute.Component<'profile.career', true>;
     contacts: Schema.Attribute.Component<'profile.contact', true>;
     createdAt: Schema.Attribute.DateTime;

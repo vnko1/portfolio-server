@@ -1,17 +1,18 @@
 {
   "collectionName": "components_profile_experiences",
   "info": {
-    "displayName": "Experience"
+    "displayName": "Experience",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "icon": {
-      "allowedTypes": [
-        "images"
-      ],
+    "lightIcon": {
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "title": {
       "type": "string",
@@ -25,6 +26,14 @@
       "type": "component",
       "repeatable": true,
       "component": "profile.skill"
+    },
+    "darkIcon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

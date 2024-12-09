@@ -18,10 +18,12 @@ export interface ProfileCareer extends Struct.ComponentSchema {
 export interface ProfileContact extends Struct.ComponentSchema {
   collectionName: 'components_profile_contacts';
   info: {
+    description: '';
     displayName: 'Contact';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    darkIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    lightIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     link: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -29,11 +31,13 @@ export interface ProfileContact extends Struct.ComponentSchema {
 export interface ProfileExperience extends Struct.ComponentSchema {
   collectionName: 'components_profile_experiences';
   info: {
+    description: '';
     displayName: 'Experience';
   };
   attributes: {
+    darkIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    lightIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     stackList: Schema.Attribute.Component<'profile.skill', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
