@@ -4,57 +4,32 @@
   "info": {
     "singularName": "portfolio",
     "pluralName": "portfolios",
-    "displayName": "Portfolio",
-    "description": ""
+    "displayName": "Portfolio"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "firstName": {
-      "type": "string",
-      "required": true
-    },
-    "lastName": {
-      "type": "string",
-      "required": true
-    },
-    "position": {
-      "type": "string",
-      "required": true
-    },
-    "contacts": {
+    "hero": {
       "type": "component",
-      "repeatable": true,
-      "component": "profile.contact",
-      "required": true
+      "repeatable": false,
+      "component": "pages.section"
     },
-    "expertise": {
+    "about": {
       "type": "component",
-      "repeatable": true,
-      "component": "profile.experience",
-      "required": true
-    },
-    "careerHistory": {
-      "type": "component",
-      "repeatable": true,
-      "component": "profile.career",
-      "required": true
+      "repeatable": false,
+      "component": "pages.section"
     },
     "projects": {
       "type": "component",
-      "repeatable": true,
-      "component": "profile.project",
-      "required": true
+      "repeatable": false,
+      "component": "pages.section"
     },
-    "avatar": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.link"
     }
   }
 }

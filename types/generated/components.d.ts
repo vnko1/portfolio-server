@@ -1,85 +1,62 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface ProfileCareer extends Struct.ComponentSchema {
-  collectionName: 'components_profile_careers';
+export interface BaseLink extends Struct.ComponentSchema {
+  collectionName: 'components_base_links';
   info: {
-    description: '';
-    displayName: 'Career';
+    displayName: 'Link';
   };
   attributes: {
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    period: Schema.Attribute.String & Schema.Attribute.Required;
-    subTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface ProfileContact extends Struct.ComponentSchema {
-  collectionName: 'components_profile_contacts';
-  info: {
-    description: '';
-    displayName: 'Contact';
-  };
-  attributes: {
-    darkIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    lightIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    iconDescription: Schema.Attribute.String;
     link: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface ProfileExperience extends Struct.ComponentSchema {
-  collectionName: 'components_profile_experiences';
+export interface BaseTechStack extends Struct.ComponentSchema {
+  collectionName: 'components_base_tech_stacks';
   info: {
-    description: '';
-    displayName: 'Experience';
+    displayName: 'TechStack';
   };
   attributes: {
-    darkIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    lightIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    stackList: Schema.Attribute.Component<'profile.skill', true>;
+    techStack: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PagesSection extends Struct.ComponentSchema {
+  collectionName: 'components_pages_sections';
+  info: {
+    displayName: 'Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    projects: Schema.Attribute.Component<'projects.project', true>;
+    techStack: Schema.Attribute.Component<'base.tech-stack', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface ProfileProject extends Struct.ComponentSchema {
-  collectionName: 'components_profile_projects';
+export interface ProjectsProject extends Struct.ComponentSchema {
+  collectionName: 'components_projects_projects';
   info: {
-    description: '';
     displayName: 'Project';
   };
   attributes: {
-    banner: Schema.Attribute.Media<'files' | 'images'> &
-      Schema.Attribute.Required;
-    codeLink: Schema.Attribute.String;
+    banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    bannerDescription: Schema.Attribute.String;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
-    role: Schema.Attribute.String;
+    links: Schema.Attribute.Component<'base.link', true>;
+    techStack: Schema.Attribute.Component<'base.tech-stack', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface ProfileSkill extends Struct.ComponentSchema {
-  collectionName: 'components_profile_skills';
-  info: {
-    description: '';
-    displayName: 'Skill';
-  };
-  attributes: {
-    skill: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'profile.career': ProfileCareer;
-      'profile.contact': ProfileContact;
-      'profile.experience': ProfileExperience;
-      'profile.project': ProfileProject;
-      'profile.skill': ProfileSkill;
+      'base.link': BaseLink;
+      'base.tech-stack': BaseTechStack;
+      'pages.section': PagesSection;
+      'projects.project': ProjectsProject;
     }
   }
 }

@@ -372,36 +372,27 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
   collectionName: 'portfolios';
   info: {
-    description: '';
     displayName: 'Portfolio';
     pluralName: 'portfolios';
     singularName: 'portfolio';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   attributes: {
-    avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    careerHistory: Schema.Attribute.Component<'profile.career', true> &
-      Schema.Attribute.Required;
-    contacts: Schema.Attribute.Component<'profile.contact', true> &
-      Schema.Attribute.Required;
+    about: Schema.Attribute.Component<'pages.section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    expertise: Schema.Attribute.Component<'profile.experience', true> &
-      Schema.Attribute.Required;
-    firstName: Schema.Attribute.String & Schema.Attribute.Required;
-    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    hero: Schema.Attribute.Component<'pages.section', false>;
+    links: Schema.Attribute.Component<'base.link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::portfolio.portfolio'
     > &
       Schema.Attribute.Private;
-    position: Schema.Attribute.String & Schema.Attribute.Required;
-    projects: Schema.Attribute.Component<'profile.project', true> &
-      Schema.Attribute.Required;
+    projects: Schema.Attribute.Component<'pages.section', false>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
