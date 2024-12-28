@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_base_projects",
+  "info": {
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bannerDescription": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "liveLink": {
+      "type": "string",
+      "required": true
+    },
+    "codeLink": {
+      "type": "string"
+    },
+    "techStacks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.skill",
+      "required": true
+    }
+  }
+}

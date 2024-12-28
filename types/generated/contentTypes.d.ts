@@ -372,19 +372,29 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
   collectionName: 'portfolios';
   info: {
+    description: '';
     displayName: 'Portfolio';
     pluralName: 'portfolios';
     singularName: 'portfolio';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    about: Schema.Attribute.Component<'pages.section', false>;
+    aboutMeSection: Schema.Attribute.Component<'page.section', false>;
+    avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    contactMeSection: Schema.Attribute.Component<'page.section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'pages.section', false>;
+    emailLink: Schema.Attribute.String & Schema.Attribute.Required;
+    emailText: Schema.Attribute.String & Schema.Attribute.Required;
+    experience: Schema.Attribute.Component<'base.experience', true>;
+    experienceSection: Schema.Attribute.Component<'page.section', false>;
+    heroSection: Schema.Attribute.Component<'page.section', false>;
+    isAvailable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isAvailableText: Schema.Attribute.Text;
     links: Schema.Attribute.Component<'base.link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -392,8 +402,16 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
       'api::portfolio.portfolio'
     > &
       Schema.Attribute.Private;
-    projects: Schema.Attribute.Component<'pages.section', false>;
+    locationLink: Schema.Attribute.String & Schema.Attribute.Required;
+    locationText: Schema.Attribute.String & Schema.Attribute.Required;
+    phoneLink: Schema.Attribute.String & Schema.Attribute.Required;
+    phoneText: Schema.Attribute.String & Schema.Attribute.Required;
+    projects: Schema.Attribute.Component<'base.project', true> &
+      Schema.Attribute.Required;
+    projectsSection: Schema.Attribute.Component<'page.section', false>;
     publishedAt: Schema.Attribute.DateTime;
+    skills: Schema.Attribute.Component<'base.skill', true>;
+    skillsSection: Schema.Attribute.Component<'page.section', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

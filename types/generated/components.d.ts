@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BaseExperience extends Struct.ComponentSchema {
+  collectionName: 'components_base_experiences';
+  info: {
+    displayName: 'Experience';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images'>;
+    iconDescription: Schema.Attribute.Text;
+    period: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BaseLink extends Struct.ComponentSchema {
   collectionName: 'components_base_links';
   info: {
@@ -12,40 +26,46 @@ export interface BaseLink extends Struct.ComponentSchema {
   };
 }
 
-export interface BaseTechStack extends Struct.ComponentSchema {
-  collectionName: 'components_base_tech_stacks';
+export interface BaseProject extends Struct.ComponentSchema {
+  collectionName: 'components_base_projects';
   info: {
-    displayName: 'TechStack';
+    description: '';
+    displayName: 'Project';
   };
   attributes: {
-    techStack: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface PagesSection extends Struct.ComponentSchema {
-  collectionName: 'components_pages_sections';
-  info: {
-    displayName: 'Section';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    projects: Schema.Attribute.Component<'projects.project', true>;
-    techStack: Schema.Attribute.Component<'base.tech-stack', true>;
+    banner: Schema.Attribute.Media<'images'>;
+    bannerDescription: Schema.Attribute.Text;
+    codeLink: Schema.Attribute.String;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
+    techStacks: Schema.Attribute.Component<'base.skill', true> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface ProjectsProject extends Struct.ComponentSchema {
-  collectionName: 'components_projects_projects';
+export interface BaseSkill extends Struct.ComponentSchema {
+  collectionName: 'components_base_tech_stacks';
   info: {
-    displayName: 'Project';
+    description: '';
+    displayName: 'skill';
   };
   attributes: {
-    banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    bannerDescription: Schema.Attribute.String;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    links: Schema.Attribute.Component<'base.link', true>;
-    techStack: Schema.Attribute.Component<'base.tech-stack', true>;
+    icon: Schema.Attribute.Media<'images'>;
+    iconDescription: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PageSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_sections';
+  info: {
+    description: '';
+    displayName: 'Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    secondaryDescription: Schema.Attribute.Blocks;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -53,10 +73,11 @@ export interface ProjectsProject extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'base.experience': BaseExperience;
       'base.link': BaseLink;
-      'base.tech-stack': BaseTechStack;
-      'pages.section': PagesSection;
-      'projects.project': ProjectsProject;
+      'base.project': BaseProject;
+      'base.skill': BaseSkill;
+      'page.section': PageSection;
     }
   }
 }

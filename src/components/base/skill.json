@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_base_tech_stacks",
+  "info": {
+    "displayName": "skill",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "iconDescription": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
