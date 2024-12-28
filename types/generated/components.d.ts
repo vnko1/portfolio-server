@@ -17,10 +17,11 @@ export interface BaseExperience extends Struct.ComponentSchema {
 export interface BaseLink extends Struct.ComponentSchema {
   collectionName: 'components_base_links';
   info: {
+    description: '';
     displayName: 'Link';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images'>;
     iconDescription: Schema.Attribute.String;
     link: Schema.Attribute.String & Schema.Attribute.Required;
   };
