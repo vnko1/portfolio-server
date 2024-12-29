@@ -388,12 +388,12 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cv: Schema.Attribute.Media<'files'>;
-    cvName: Schema.Attribute.String & Schema.Attribute.Required;
     emailLink: Schema.Attribute.String & Schema.Attribute.Required;
     emailText: Schema.Attribute.String & Schema.Attribute.Required;
     experience: Schema.Attribute.Component<'base.experience', true>;
     experienceSection: Schema.Attribute.Component<'page.section', false>;
+    file: Schema.Attribute.Media<'files'>;
+    fileName: Schema.Attribute.String;
     heroSection: Schema.Attribute.Component<'page.section', false>;
     isAvailable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     isAvailableText: Schema.Attribute.Text;

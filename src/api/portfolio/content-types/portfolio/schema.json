@@ -111,7 +111,7 @@
       "type": "string",
       "required": true
     },
-    "cv": {
+    "file": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -119,9 +119,9 @@
         "files"
       ]
     },
-    "cvName": {
+    "fileName": {
       "type": "string",
-      "required": true
+      "required": false
     }
   }
 }
