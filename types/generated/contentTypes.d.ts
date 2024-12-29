@@ -389,6 +389,7 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     cv: Schema.Attribute.Media<'files'>;
+    cvName: Schema.Attribute.String & Schema.Attribute.Required;
     emailLink: Schema.Attribute.String & Schema.Attribute.Required;
     emailText: Schema.Attribute.String & Schema.Attribute.Required;
     experience: Schema.Attribute.Component<'base.experience', true>;
