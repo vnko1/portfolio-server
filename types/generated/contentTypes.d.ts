@@ -408,8 +408,7 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     locationText: Schema.Attribute.String & Schema.Attribute.Required;
     phoneLink: Schema.Attribute.String & Schema.Attribute.Required;
     phoneText: Schema.Attribute.String & Schema.Attribute.Required;
-    projects: Schema.Attribute.Component<'base.project', true> &
-      Schema.Attribute.Required;
+    projects: Schema.Attribute.Component<'base.project', true>;
     projectsSection: Schema.Attribute.Component<'page.section', false>;
     publishedAt: Schema.Attribute.DateTime;
     skills: Schema.Attribute.Component<'base.skill', true>;

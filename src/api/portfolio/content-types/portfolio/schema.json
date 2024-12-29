@@ -63,7 +63,7 @@
       "type": "component",
       "repeatable": true,
       "component": "base.project",
-      "required": true
+      "required": false
     },
     "heroSection": {
       "type": "component",
