@@ -1,7 +1,8 @@
 {
   "collectionName": "components_base_experiences",
   "info": {
-    "displayName": "Experience"
+    "displayName": "Experience",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,19 +14,20 @@
       "type": "text",
       "required": true
     },
-    "description": {
-      "type": "blocks",
-      "required": true
-    },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "iconDescription": {
       "type": "text"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

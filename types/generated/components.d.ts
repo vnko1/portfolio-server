@@ -3,10 +3,11 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface BaseExperience extends Struct.ComponentSchema {
   collectionName: 'components_base_experiences';
   info: {
+    description: '';
     displayName: 'Experience';
   };
   attributes: {
-    description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    description: Schema.Attribute.RichText & Schema.Attribute.Required;
     icon: Schema.Attribute.Media<'images'>;
     iconDescription: Schema.Attribute.Text;
     period: Schema.Attribute.Text & Schema.Attribute.Required;
