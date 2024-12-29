@@ -110,6 +110,13 @@
     "emailText": {
       "type": "string",
       "required": true
+    },
+    "cv": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
