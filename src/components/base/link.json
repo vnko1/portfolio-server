@@ -20,6 +20,10 @@
     },
     "iconDescription": {
       "type": "string"
+    },
+    "linkText": {
+      "type": "string",
+      "required": true
     }
   }
 }
