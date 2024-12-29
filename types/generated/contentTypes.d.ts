@@ -383,7 +383,7 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
   attributes: {
     aboutMeSection: Schema.Attribute.Component<'page.section', false>;
     avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    banner: Schema.Attribute.Media<'images'>;
     contactMeSection: Schema.Attribute.Component<'page.section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
