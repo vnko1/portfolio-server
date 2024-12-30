@@ -393,6 +393,7 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     experience: Schema.Attribute.Component<'base.experience', true>;
     experienceSection: Schema.Attribute.Component<'page.section', false>;
     file: Schema.Attribute.Media<'files'>;
+    fileLink: Schema.Attribute.String;
     fileName: Schema.Attribute.String;
     heroSection: Schema.Attribute.Component<'page.section', false>;
     isAvailable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;

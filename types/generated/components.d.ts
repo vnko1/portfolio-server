@@ -54,8 +54,9 @@ export interface BaseSkill extends Struct.ComponentSchema {
     displayName: 'skill';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    iconDark: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     iconDescription: Schema.Attribute.Text;
+    iconLight: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

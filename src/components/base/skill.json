@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "icon": {
+    "iconLight": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -19,6 +19,14 @@
     },
     "title": {
       "type": "string",
+      "required": true
+    },
+    "iconDark": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }

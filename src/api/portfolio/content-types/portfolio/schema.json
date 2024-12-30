@@ -122,6 +122,9 @@
     "fileName": {
       "type": "string",
       "required": false
+    },
+    "fileLink": {
+      "type": "string"
     }
   }
 }
