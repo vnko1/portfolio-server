@@ -68,7 +68,7 @@ export interface PageSection extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    secondaryDescription: Schema.Attribute.Blocks;
+    secondaryDescription: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
