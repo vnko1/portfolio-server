@@ -26,6 +26,7 @@ export interface BaseLink extends Struct.ComponentSchema {
     iconDescription: Schema.Attribute.String;
     link: Schema.Attribute.String & Schema.Attribute.Required;
     linkText: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
