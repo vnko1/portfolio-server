@@ -25,7 +25,6 @@ export interface BaseLink extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<'images'>;
     iconDescription: Schema.Attribute.String;
     link: Schema.Attribute.String & Schema.Attribute.Required;
-    linkText: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -69,7 +68,9 @@ export interface PageSection extends Struct.ComponentSchema {
     displayName: 'Section';
   };
   attributes: {
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<' '>;
     secondaryDescription: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
