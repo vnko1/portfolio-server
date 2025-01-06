@@ -397,7 +397,7 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     fileName: Schema.Attribute.String;
     heroSection: Schema.Attribute.Component<'page.section', false>;
     isAvailable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    isAvailableText: Schema.Attribute.Text;
+    isAvailableText: Schema.Attribute.Text & Schema.Attribute.Required;
     links: Schema.Attribute.Component<'base.link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
