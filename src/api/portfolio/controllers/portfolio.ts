@@ -28,7 +28,12 @@ const populateConfig = {
     avatar: { fields: ["url"] },
     links: { populate: { icon: { fields: ["url"] } } },
     banner: { fields: ["url"] },
-    experience: { populate: { icon: { fields: ["url"] } } },
+    experience: {
+      populate: {
+        iconDark: { fields: ["url"] },
+        iconLight: { fields: ["url"] },
+      },
+    },
     heroSection: true,
     aboutMeSection: true,
     skillsSection: true,

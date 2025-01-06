@@ -26,7 +26,8 @@
       "required": false
     },
     "isAvailableText": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "links": {
       "type": "component",
