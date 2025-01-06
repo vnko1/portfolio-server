@@ -17,6 +17,9 @@
     },
     "secondaryDescription": {
       "type": "richtext"
+    },
+    "subText": {
+      "type": "text"
     }
   }
 }
