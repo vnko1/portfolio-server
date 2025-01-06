@@ -8,8 +8,9 @@ export interface BaseExperience extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images'>;
+    iconDark: Schema.Attribute.Media<'images'>;
     iconDescription: Schema.Attribute.Text;
+    iconLight: Schema.Attribute.Media<'images'>;
     period: Schema.Attribute.Text & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
