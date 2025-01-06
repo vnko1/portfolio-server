@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_base_experiences",
+  "info": {
+    "displayName": "Experience",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "period": {
+      "type": "text",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "iconDescription": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

@@ -381,28 +381,39 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    aboutMeSection: Schema.Attribute.Component<'page.section', false>;
     avatar: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    careerHistory: Schema.Attribute.Component<'profile.career', true> &
-      Schema.Attribute.Required;
-    contacts: Schema.Attribute.Component<'profile.contact', true> &
-      Schema.Attribute.Required;
+    banner: Schema.Attribute.Media<'images'>;
+    contactMeSection: Schema.Attribute.Component<'page.section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    expertise: Schema.Attribute.Component<'profile.experience', true> &
-      Schema.Attribute.Required;
-    firstName: Schema.Attribute.String & Schema.Attribute.Required;
-    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    emailLink: Schema.Attribute.String & Schema.Attribute.Required;
+    emailText: Schema.Attribute.String & Schema.Attribute.Required;
+    experience: Schema.Attribute.Component<'base.experience', true>;
+    experienceSection: Schema.Attribute.Component<'page.section', false>;
+    file: Schema.Attribute.Media<'files'>;
+    fileLink: Schema.Attribute.String;
+    fileName: Schema.Attribute.String;
+    heroSection: Schema.Attribute.Component<'page.section', false>;
+    isAvailable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isAvailableText: Schema.Attribute.Text;
+    links: Schema.Attribute.Component<'base.link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::portfolio.portfolio'
     > &
       Schema.Attribute.Private;
-    position: Schema.Attribute.String & Schema.Attribute.Required;
-    projects: Schema.Attribute.Component<'profile.project', true> &
-      Schema.Attribute.Required;
+    locationLink: Schema.Attribute.String & Schema.Attribute.Required;
+    locationText: Schema.Attribute.String & Schema.Attribute.Required;
+    phoneLink: Schema.Attribute.String & Schema.Attribute.Required;
+    phoneText: Schema.Attribute.String & Schema.Attribute.Required;
+    projects: Schema.Attribute.Component<'base.project', true>;
+    projectsSection: Schema.Attribute.Component<'page.section', false>;
     publishedAt: Schema.Attribute.DateTime;
+    skills: Schema.Attribute.Component<'base.skill', true>;
+    skillsSection: Schema.Attribute.Component<'page.section', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

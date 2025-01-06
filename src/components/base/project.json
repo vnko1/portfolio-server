@@ -1,18 +1,21 @@
 {
-  "collectionName": "components_profile_experiences",
+  "collectionName": "components_base_projects",
   "info": {
-    "displayName": "Experience",
+    "displayName": "Project",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "lightIcon": {
+    "banner": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
         "images"
       ]
+    },
+    "bannerDescription": {
+      "type": "text"
     },
     "title": {
       "type": "string",
@@ -22,17 +25,17 @@
       "type": "text",
       "required": true
     },
-    "stackList": {
+    "liveLink": {
+      "type": "string",
+      "required": true
+    },
+    "codeLink": {
+      "type": "string"
+    },
+    "techStacks": {
       "type": "component",
       "repeatable": true,
-      "component": "profile.skill"
-    },
-    "darkIcon": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
+      "component": "base.skill",
       "required": true
     }
   }

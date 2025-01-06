@@ -12,41 +12,26 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "firstName": {
+    "locationText": {
       "type": "string",
       "required": true
     },
-    "lastName": {
+    "locationLink": {
       "type": "string",
       "required": true
     },
-    "position": {
-      "type": "string",
-      "required": true
+    "isAvailable": {
+      "type": "boolean",
+      "default": true,
+      "required": false
     },
-    "contacts": {
+    "isAvailableText": {
+      "type": "text"
+    },
+    "links": {
       "type": "component",
       "repeatable": true,
-      "component": "profile.contact",
-      "required": true
-    },
-    "expertise": {
-      "type": "component",
-      "repeatable": true,
-      "component": "profile.experience",
-      "required": true
-    },
-    "careerHistory": {
-      "type": "component",
-      "repeatable": true,
-      "component": "profile.career",
-      "required": true
-    },
-    "projects": {
-      "type": "component",
-      "repeatable": true,
-      "component": "profile.project",
-      "required": true
+      "component": "base.link"
     },
     "avatar": {
       "type": "media",
@@ -55,6 +40,91 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.skill"
+    },
+    "experience": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.experience"
+    },
+    "projects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.project",
+      "required": false
+    },
+    "heroSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.section"
+    },
+    "aboutMeSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.section"
+    },
+    "skillsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.section"
+    },
+    "experienceSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.section"
+    },
+    "projectsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.section"
+    },
+    "contactMeSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.section"
+    },
+    "phoneLink": {
+      "type": "string",
+      "required": true
+    },
+    "phoneText": {
+      "type": "string",
+      "required": true
+    },
+    "emailLink": {
+      "type": "string",
+      "required": true
+    },
+    "emailText": {
+      "type": "string",
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "fileName": {
+      "type": "string",
+      "required": false
+    },
+    "fileLink": {
+      "type": "string"
     }
   }
 }

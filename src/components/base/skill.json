@@ -1,16 +1,12 @@
 {
-  "collectionName": "components_profile_contacts",
+  "collectionName": "components_base_tech_stacks",
   "info": {
-    "displayName": "Contact",
+    "displayName": "skill",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "link": {
-      "type": "string",
-      "required": true
-    },
-    "lightIcon": {
+    "iconLight": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -18,7 +14,14 @@
         "images"
       ]
     },
-    "darkIcon": {
+    "iconDescription": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "iconDark": {
       "allowedTypes": [
         "images"
       ],
