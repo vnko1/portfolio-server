@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_me_pages",
+  "info": {
+    "singularName": "contact-me-page",
+    "pluralName": "contact-me-pages",
+    "displayName": "ContactMePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string",
+      "required": true
+    },
+    "contactMeTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
