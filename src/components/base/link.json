@@ -6,24 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "link": {
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
       "type": "string",
       "required": true
     },
     "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images"
-      ]
-    },
-    "iconDescription": {
-      "type": "string"
-    },
-    "title": {
-      "type": "string",
-      "required": true
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
