@@ -369,6 +369,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCommonCommon extends Struct.SingleTypeSchema {
+  collectionName: "commons";
+  info: {
+    displayName: "Common";
+    pluralName: "commons";
+    singularName: "common";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactLink: Schema.Attribute.Component<"base.link", false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::common.common"
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+    socialLinks: Schema.Attribute.Component<"base.link", true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: "strapi_releases";
@@ -878,6 +910,7 @@ declare module "@strapi/strapi" {
       "admin::transfer-token": AdminTransferToken;
       "admin::transfer-token-permission": AdminTransferTokenPermission;
       "admin::user": AdminUser;
+      "api::common.common": ApiCommonCommon;
       "plugin::content-releases.release": PluginContentReleasesRelease;
       "plugin::content-releases.release-action": PluginContentReleasesReleaseAction;
       "plugin::i18n.locale": PluginI18NLocale;
