@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_base_project_cards",
+  "info": {
+    "displayName": "ProjectCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "liveLink": {
+      "type": "string",
+      "required": true
+    },
+    "codeLink": {
+      "type": "string"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

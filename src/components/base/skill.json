@@ -1,24 +1,25 @@
 {
   "collectionName": "components_base_skills",
   "info": {
-    "displayName": "Skill"
+    "displayName": "Skill",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "required": true
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "progress": {
       "type": "decimal",

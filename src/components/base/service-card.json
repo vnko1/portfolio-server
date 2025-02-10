@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_base_service_cards",
+  "info": {
+    "displayName": "serviceCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
