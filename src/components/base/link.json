@@ -1,16 +1,15 @@
 {
   "collectionName": "components_base_links",
   "info": {
-    "displayName": "Link",
-    "description": ""
+    "displayName": "Link"
   },
   "options": {},
   "attributes": {
-    "href": {
+    "link": {
       "type": "string",
       "required": true
     },
-    "text": {
+    "title": {
       "type": "string",
       "required": true
     },
