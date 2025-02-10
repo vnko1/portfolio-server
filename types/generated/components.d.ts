@@ -70,6 +70,18 @@ export interface BaseSkill extends Struct.ComponentSchema {
   };
 }
 
+export interface RoleSkills extends Struct.ComponentSchema {
+  collectionName: "components_role_skills";
+  info: {
+    displayName: "Skills";
+  };
+  attributes: {
+    skills: Schema.Attribute.Component<"base.skill", true>;
+    subTitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module "@strapi/strapi" {
   export module Public {
     export interface ComponentSchemas {
@@ -78,6 +90,7 @@ declare module "@strapi/strapi" {
       "base.qualification-card": BaseQualificationCard;
       "base.service-card": BaseServiceCard;
       "base.skill": BaseSkill;
+      "role.skills": RoleSkills;
     }
   }
 }
