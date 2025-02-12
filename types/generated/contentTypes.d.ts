@@ -369,36 +369,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAboutAbout extends Struct.SingleTypeSchema {
-  collectionName: "abouts";
-  info: {
-    displayName: "About";
-    pluralName: "abouts";
-    singularName: "about";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    companies: Schema.Attribute.Integer;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    education: Schema.Attribute.Component<"base.qualification-card", true>;
-    experience: Schema.Attribute.Integer & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<"oneToMany", "api::about.about"> &
-      Schema.Attribute.Private;
-    projects: Schema.Attribute.Integer & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private;
-    work: Schema.Attribute.Component<"base.qualification-card", true>;
-  };
-}
-
 export interface ApiCommonCommon extends Struct.SingleTypeSchema {
   collectionName: "commons";
   info: {
@@ -1051,7 +1021,6 @@ declare module "@strapi/strapi" {
       "admin::transfer-token": AdminTransferToken;
       "admin::transfer-token-permission": AdminTransferTokenPermission;
       "admin::user": AdminUser;
-      "api::about.about": ApiAboutAbout;
       "api::common.common": ApiCommonCommon;
       "api::portfolio.portfolio": ApiPortfolioPortfolio;
       "api::promo.promo": ApiPromoPromo;
