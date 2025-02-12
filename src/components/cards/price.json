@@ -22,14 +22,14 @@
       "type": "integer",
       "required": true
     },
-    "tarifficationType": {
+    "billing_system": {
       "type": "string"
     },
     "includes": {
       "type": "text",
       "required": true
     },
-    "tariffType": {
+    "tariff": {
       "type": "enumeration",
       "enum": [
         "basic",

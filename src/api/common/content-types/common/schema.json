@@ -4,14 +4,15 @@
   "info": {
     "singularName": "common",
     "pluralName": "commons",
-    "displayName": "Common"
+    "displayName": "Common",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "fullName": {
+    "full_name": {
       "type": "string",
       "required": true
     },
@@ -19,19 +20,30 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
+    "city": {
+      "type": "string",
       "required": true
     },
-    "socialLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "base.link"
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "contactLink": {
-      "type": "component",
-      "repeatable": false,
-      "component": "base.link"
+    "copyright_text": {
+      "type": "text"
+    },
+    "contact_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contact.contact"
+    },
+    "social_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social.social"
     }
   }
 }

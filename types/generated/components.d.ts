@@ -22,6 +22,7 @@ export interface BaseLink extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<"images">;
     link: Schema.Attribute.String & Schema.Attribute.Required;
     text: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -65,13 +66,11 @@ export interface CardsPrice extends Struct.ComponentSchema {
   };
   attributes: {
     amount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    billing_system: Schema.Attribute.String;
     currency: Schema.Attribute.String & Schema.Attribute.Required;
     icon: Schema.Attribute.Media<"images">;
     includes: Schema.Attribute.Text & Schema.Attribute.Required;
-    tarifficationType: Schema.Attribute.String;
-    tariffType: Schema.Attribute.Enumeration<
-      ["basic", "premium", "unlimited"]
-    > &
+    tariff: Schema.Attribute.Enumeration<["basic", "premium", "unlimited"]> &
       Schema.Attribute.Required;
   };
 }
@@ -79,14 +78,15 @@ export interface CardsPrice extends Struct.ComponentSchema {
 export interface CardsProject extends Struct.ComponentSchema {
   collectionName: "components_cards_projects";
   info: {
+    description: "";
     displayName: "Project";
   };
   attributes: {
     banner: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
-    codeLink: Schema.Attribute.String;
+    code_link: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
-    techStack: Schema.Attribute.Text & Schema.Attribute.Required;
+    live_link: Schema.Attribute.String & Schema.Attribute.Required;
+    tech_stack: Schema.Attribute.Text & Schema.Attribute.Required;
     titlle: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.Enumeration<["web"]>;
   };
@@ -95,11 +95,12 @@ export interface CardsProject extends Struct.ComponentSchema {
 export interface CardsReview extends Struct.ComponentSchema {
   collectionName: "components_cards_reviews";
   info: {
+    description: "";
     displayName: "Review";
   };
   attributes: {
     avatar: Schema.Attribute.Media<"images">;
-    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    full_name: Schema.Attribute.String & Schema.Attribute.Required;
     location: Schema.Attribute.Text;
     text: Schema.Attribute.Text & Schema.Attribute.Required;
   };
