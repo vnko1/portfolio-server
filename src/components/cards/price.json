@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_cards_prices",
+  "info": {
+    "displayName": "Price",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "currency": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "integer",
+      "required": true
+    },
+    "tarifficationType": {
+      "type": "string"
+    },
+    "includes": {
+      "type": "text",
+      "required": true
+    },
+    "tariffType": {
+      "type": "enumeration",
+      "enum": [
+        "basic",
+        "premium",
+        "unlimited"
+      ],
+      "required": true
+    }
+  }
+}

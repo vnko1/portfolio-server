@@ -1,63 +1,37 @@
 import type { Schema, Struct } from "@strapi/strapi";
 
+export interface BaseClient extends Struct.ComponentSchema {
+  collectionName: "components_base_clients";
+  info: {
+    displayName: "Client";
+  };
+  attributes: {
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BaseLink extends Struct.ComponentSchema {
   collectionName: "components_base_links";
   info: {
+    description: "";
     displayName: "Link";
   };
   attributes: {
     icon: Schema.Attribute.Media<"images">;
     link: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BaseProjectCard extends Struct.ComponentSchema {
-  collectionName: "components_base_project_cards";
-  info: {
-    displayName: "ProjectCard";
-  };
-  attributes: {
-    banner: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
-    codeLink: Schema.Attribute.String;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BaseQualificationCard extends Struct.ComponentSchema {
-  collectionName: "components_base_qualification_cards";
-  info: {
-    displayName: "QualificationCard";
-  };
-  attributes: {
-    period: Schema.Attribute.Text & Schema.Attribute.Required;
-    place: Schema.Attribute.Text & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BaseServiceCard extends Struct.ComponentSchema {
-  collectionName: "components_base_service_cards";
-  info: {
-    displayName: "serviceCard";
-  };
-  attributes: {
-    banner: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 export interface BaseSkill extends Struct.ComponentSchema {
   collectionName: "components_base_skills";
   info: {
-    description: "";
     displayName: "Skill";
   };
   attributes: {
-    icon: Schema.Attribute.Media<"images" | "files" | "videos" | "audios"> &
-      Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<"files" | "images">;
     progress: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
@@ -70,14 +44,75 @@ export interface BaseSkill extends Struct.ComponentSchema {
   };
 }
 
-export interface RoleSkills extends Struct.ComponentSchema {
-  collectionName: "components_role_skills";
+export interface CardsExperience extends Struct.ComponentSchema {
+  collectionName: "components_cards_experiences";
   info: {
-    displayName: "Skills";
+    displayName: "Experience";
   };
   attributes: {
-    skills: Schema.Attribute.Component<"base.skill", true>;
-    subTitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    period: Schema.Attribute.Text & Schema.Attribute.Required;
+    place: Schema.Attribute.String & Schema.Attribute.Required;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface CardsPrice extends Struct.ComponentSchema {
+  collectionName: "components_cards_prices";
+  info: {
+    description: "";
+    displayName: "Price";
+  };
+  attributes: {
+    amount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    currency: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<"images">;
+    includes: Schema.Attribute.Text & Schema.Attribute.Required;
+    tarifficationType: Schema.Attribute.String;
+    tariffType: Schema.Attribute.Enumeration<
+      ["basic", "premium", "unlimited"]
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface CardsProject extends Struct.ComponentSchema {
+  collectionName: "components_cards_projects";
+  info: {
+    displayName: "Project";
+  };
+  attributes: {
+    banner: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+    codeLink: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    liveLink: Schema.Attribute.String & Schema.Attribute.Required;
+    techStack: Schema.Attribute.Text & Schema.Attribute.Required;
+    titlle: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<["web"]>;
+  };
+}
+
+export interface CardsReview extends Struct.ComponentSchema {
+  collectionName: "components_cards_reviews";
+  info: {
+    displayName: "Review";
+  };
+  attributes: {
+    avatar: Schema.Attribute.Media<"images">;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    location: Schema.Attribute.Text;
+    text: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface CardsService extends Struct.ComponentSchema {
+  collectionName: "components_cards_services";
+  info: {
+    displayName: "Service";
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -85,12 +120,14 @@ export interface RoleSkills extends Struct.ComponentSchema {
 declare module "@strapi/strapi" {
   export module Public {
     export interface ComponentSchemas {
+      "base.client": BaseClient;
       "base.link": BaseLink;
-      "base.project-card": BaseProjectCard;
-      "base.qualification-card": BaseQualificationCard;
-      "base.service-card": BaseServiceCard;
       "base.skill": BaseSkill;
-      "role.skills": RoleSkills;
+      "cards.experience": CardsExperience;
+      "cards.price": CardsPrice;
+      "cards.project": CardsProject;
+      "cards.review": CardsReview;
+      "cards.service": CardsService;
     }
   }
 }

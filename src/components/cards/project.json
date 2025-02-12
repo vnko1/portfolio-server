@@ -1,15 +1,18 @@
 {
-  "collectionName": "components_base_project_cards",
+  "collectionName": "components_cards_projects",
   "info": {
-    "displayName": "ProjectCard"
+    "displayName": "Project"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "titlle": {
       "type": "string",
       "required": true
     },
     "description": {
+      "type": "text"
+    },
+    "techStack": {
       "type": "text",
       "required": true
     },
@@ -27,6 +30,12 @@
       "type": "media",
       "multiple": false,
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "web"
+      ]
     }
   }
 }

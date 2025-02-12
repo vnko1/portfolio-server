@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_base_service_cards",
+  "collectionName": "components_cards_services",
   "info": {
-    "displayName": "serviceCard"
+    "displayName": "Service"
   },
   "options": {},
   "attributes": {
@@ -9,7 +9,11 @@
       "type": "string",
       "required": true
     },
-    "banner": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "icon": {
       "allowedTypes": [
         "images"
       ],

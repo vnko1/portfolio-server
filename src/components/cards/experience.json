@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_cards_experiences",
+  "info": {
+    "displayName": "Experience"
+  },
+  "options": {},
+  "attributes": {
+    "period": {
+      "type": "text",
+      "required": true
+    },
+    "place": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

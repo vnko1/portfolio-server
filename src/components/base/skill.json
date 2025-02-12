@@ -1,8 +1,7 @@
 {
   "collectionName": "components_base_skills",
   "info": {
-    "displayName": "Skill",
-    "description": ""
+    "displayName": "Skill"
   },
   "options": {},
   "attributes": {
@@ -10,21 +9,19 @@
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "progress": {
       "type": "decimal",
       "min": 0,
-      "max": 1
+      "max": 1,
+      "required": false
+    },
+    "icon": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
