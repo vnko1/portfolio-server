@@ -1,7 +1,8 @@
 {
   "collectionName": "components_base_skills",
   "info": {
-    "displayName": "Skill"
+    "displayName": "Skill",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,12 +17,12 @@
       "required": false
     },
     "icon": {
-      "allowedTypes": [
-        "files",
-        "images"
-      ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

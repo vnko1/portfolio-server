@@ -29,10 +29,11 @@ export interface BaseLink extends Struct.ComponentSchema {
 export interface BaseSkill extends Struct.ComponentSchema {
   collectionName: "components_base_skills";
   info: {
+    description: "";
     displayName: "Skill";
   };
   attributes: {
-    icon: Schema.Attribute.Media<"files" | "images">;
+    icon: Schema.Attribute.Media<"images">;
     progress: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
