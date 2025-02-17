@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "full_name": {
-      "type": "string",
-      "required": true
-    },
     "role": {
       "type": "string",
       "required": true
@@ -44,6 +40,14 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::social.social"
+    },
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
     }
   }
 }
