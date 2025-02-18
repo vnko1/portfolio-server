@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_cards_projects",
+  "info": {
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titlle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "tech_stack": {
+      "type": "text",
+      "required": true
+    },
+    "live_link": {
+      "type": "string",
+      "required": true
+    },
+    "code_link": {
+      "type": "string"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "web"
+      ]
+    }
+  }
+}

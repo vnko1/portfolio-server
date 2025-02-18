@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "resumes",
+  "info": {
+    "singularName": "resume",
+    "pluralName": "resumes",
+    "displayName": "Resume"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "experience": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.experience",
+      "required": true
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.skill",
+      "required": true
+    },
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.review"
+    },
+    "clients": {
+      "type": "component",
+      "repeatable": true,
+      "required": true,
+      "component": "base.client"
+    }
+  }
+}

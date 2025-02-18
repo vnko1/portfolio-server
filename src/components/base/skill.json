@@ -1,27 +1,22 @@
 {
-  "collectionName": "components_base_tech_stacks",
+  "collectionName": "components_base_skills",
   "info": {
-    "displayName": "skill",
+    "displayName": "Skill",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "iconLight": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "iconDescription": {
-      "type": "text"
-    },
     "title": {
       "type": "string",
       "required": true
     },
-    "iconDark": {
+    "progress": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1,
+      "required": false
+    },
+    "icon": {
       "type": "media",
       "multiple": false,
       "required": false,
