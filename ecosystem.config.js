@@ -18,7 +18,7 @@ module.exports = {
       path: "/var/www/portfolio-server",
       "pre-deploy-local": "",
       "post-deploy":
-        "source ~/.nvm/nvm.sh && npm ci && npm run build --if-present && pm2 reload ecosystem.config.js --.env production",
+        "source ~/.nvm/nvm.sh && npm ci && npm run build --if-present && pm2 reload ecosystem.config.js --env production",
       "pre-setup": "",
     },
   },
