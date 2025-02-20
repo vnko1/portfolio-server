@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "Home"
+    "displayName": "Home",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,9 @@
     "text": {
       "type": "text",
       "required": true
+    },
+    "title_md": {
+      "type": "richtext"
     }
   }
 }
