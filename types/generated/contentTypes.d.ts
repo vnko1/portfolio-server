@@ -571,6 +571,7 @@ export interface ApiCvCv extends Struct.SingleTypeSchema {
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: "homes";
   info: {
+    description: "";
     displayName: "Home";
     pluralName: "homes";
     singularName: "home";
@@ -589,6 +590,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     sub_title: Schema.Attribute.String & Schema.Attribute.Required;
     text: Schema.Attribute.Text & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    title_md: Schema.Attribute.RichText;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
