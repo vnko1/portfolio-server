@@ -4,7 +4,8 @@
   "info": {
     "singularName": "connect",
     "pluralName": "connects",
-    "displayName": "Connect"
+    "displayName": "Connect",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,14 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::social.social"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "locationLink": {
+      "type": "string",
+      "required": true
     }
   }
 }
