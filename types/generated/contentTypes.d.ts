@@ -482,6 +482,7 @@ export interface ApiCommonCommon extends Struct.SingleTypeSchema {
 export interface ApiConnectConnect extends Struct.SingleTypeSchema {
   collectionName: "connects";
   info: {
+    description: "";
     displayName: "Connect";
     pluralName: "connects";
     singularName: "connect";
@@ -503,6 +504,8 @@ export interface ApiConnectConnect extends Struct.SingleTypeSchema {
       "api::connect.connect"
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
+    locationLink: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     social_links: Schema.Attribute.Relation<"oneToMany", "api::social.social">;
     text: Schema.Attribute.Text & Schema.Attribute.Required;
