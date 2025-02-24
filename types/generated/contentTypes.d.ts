@@ -470,7 +470,6 @@ export interface ApiCommonCommon extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
-    locationLink: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.String & Schema.Attribute.Required;
     social_links: Schema.Attribute.Relation<"oneToMany", "api::social.social">;
