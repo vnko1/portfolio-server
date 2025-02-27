@@ -3,11 +3,13 @@ import type { Schema, Struct } from "@strapi/strapi";
 export interface BaseClient extends Struct.ComponentSchema {
   collectionName: "components_base_clients";
   info: {
+    description: "";
     displayName: "Client";
   };
   attributes: {
+    dark_logo: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+    light_logo: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     link: Schema.Attribute.String & Schema.Attribute.Required;
-    logo: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -19,7 +21,8 @@ export interface BaseLink extends Struct.ComponentSchema {
     displayName: "Link";
   };
   attributes: {
-    icon: Schema.Attribute.Media<"images">;
+    dark_icon: Schema.Attribute.Media<"images">;
+    light_icon: Schema.Attribute.Media<"images">;
     link: Schema.Attribute.String & Schema.Attribute.Required;
     text: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String;
@@ -33,7 +36,8 @@ export interface BaseSkill extends Struct.ComponentSchema {
     displayName: "Skill";
   };
   attributes: {
-    icon: Schema.Attribute.Media<"images">;
+    dark_icon: Schema.Attribute.Media<"images">;
+    light_icon: Schema.Attribute.Media<"images">;
     progress: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
@@ -69,8 +73,9 @@ export interface CardsPrice extends Struct.ComponentSchema {
     amount: Schema.Attribute.Integer & Schema.Attribute.Required;
     billing_system: Schema.Attribute.String;
     currency: Schema.Attribute.String & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<"images">;
+    dark_icon: Schema.Attribute.Media<"images">;
     includes: Schema.Attribute.Text & Schema.Attribute.Required;
+    light_icon: Schema.Attribute.Media<"images">;
     tariff: Schema.Attribute.Enumeration<["basic", "premium", "unlimited"]> &
       Schema.Attribute.Required;
   };
@@ -110,11 +115,13 @@ export interface CardsReview extends Struct.ComponentSchema {
 export interface CardsService extends Struct.ComponentSchema {
   collectionName: "components_cards_services";
   info: {
+    description: "";
     displayName: "Service";
   };
   attributes: {
+    dark_icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+    light_icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

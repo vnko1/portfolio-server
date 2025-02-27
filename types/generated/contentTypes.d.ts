@@ -470,7 +470,6 @@ export interface ApiCommonCommon extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
-    locationLink: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.String & Schema.Attribute.Required;
     social_links: Schema.Attribute.Relation<"oneToMany", "api::social.social">;
@@ -483,6 +482,7 @@ export interface ApiCommonCommon extends Struct.SingleTypeSchema {
 export interface ApiConnectConnect extends Struct.SingleTypeSchema {
   collectionName: "connects";
   info: {
+    description: "";
     displayName: "Connect";
     pluralName: "connects";
     singularName: "connect";
@@ -504,6 +504,8 @@ export interface ApiConnectConnect extends Struct.SingleTypeSchema {
       "api::connect.connect"
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
+    locationLink: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     social_links: Schema.Attribute.Relation<"oneToMany", "api::social.social">;
     text: Schema.Attribute.Text & Schema.Attribute.Required;
@@ -710,7 +712,8 @@ export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
-    icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+    dark_icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+    light_icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
     link: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

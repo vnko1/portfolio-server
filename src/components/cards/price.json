@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "icon": {
+    "light_icon": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -37,6 +37,13 @@
         "unlimited"
       ],
       "required": true
+    },
+    "dark_icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
