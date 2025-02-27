@@ -16,16 +16,24 @@
       "type": "string",
       "required": true
     },
-    "icon": {
+    "light_icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "dark_icon": {
       "allowedTypes": [
         "images"
       ],
       "type": "media",
       "multiple": false,
-      "required": true
-    },
-    "text": {
-      "type": "string",
       "required": true
     }
   }

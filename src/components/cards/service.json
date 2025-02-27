@@ -1,7 +1,8 @@
 {
   "collectionName": "components_cards_services",
   "info": {
-    "displayName": "Service"
+    "displayName": "Service",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,7 +14,15 @@
       "type": "text",
       "required": true
     },
-    "icon": {
+    "light_icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "dark_icon": {
       "allowedTypes": [
         "images"
       ],

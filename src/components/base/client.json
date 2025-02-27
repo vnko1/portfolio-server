@@ -1,7 +1,8 @@
 {
   "collectionName": "components_base_clients",
   "info": {
-    "displayName": "Client"
+    "displayName": "Client",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,7 +14,15 @@
       "type": "string",
       "required": true
     },
-    "logo": {
+    "light_logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "dark_logo": {
       "allowedTypes": [
         "images"
       ],

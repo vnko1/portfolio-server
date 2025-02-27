@@ -14,7 +14,7 @@
       "type": "string",
       "required": true
     },
-    "icon": {
+    "light_icon": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -24,6 +24,13 @@
     },
     "title": {
       "type": "string"
+    },
+    "dark_icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
